@@ -12,10 +12,18 @@ def weather():
 
 	weather['timestamp'] = weather.iloc[:,0]
 	weather.index = pd.to_datetime(weather['timestamp'])
+	
 	#bcWeather.index = list(xrange(len(bcWeather['YR--MODAHRMN'])))
 
+	# Adding hour offset because resampling floors the hour, but all are past 50 min mark
+	weather = weather.resample('h',fill_method='ffill',loffset='1h')
+	
 	#cWeather['timestamp'] = time_parser.time_parser(bcWeather['Date'],bcWeather['Time'])
 	#bcWeather.index = bcWeather['timestamp']
+	
+	weather['tempF'] = weather['tempm']*9./5. + 32.
+	weather['tempF'] = weather['tempF'].apply(lambda x: round(x,1))
+
 	return weather
 
 def BGEdata():
