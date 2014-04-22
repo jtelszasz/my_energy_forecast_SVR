@@ -1,3 +1,13 @@
+"""
+
+
+functions:
+
+time_parser(date_data,time_data)
+
+
+
+"""
 import sys
 import numpy as np
 import pandas as pd
