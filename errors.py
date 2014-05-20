@@ -1,6 +1,8 @@
 '''
 errors.py
 
+Created by Justin Elszasz, 5.15.2014
+
 errors.calc_RMSE(y,t) - calculates root mean square error
 errors.calc_MAPE(y,t) - calculates average predicted error
 errors.calc_CV(y,t) - calculates coefficient of variation
@@ -41,7 +43,7 @@ def calc_MBE(y,t):
 		raise Exception, 'Length of predicted values does not equal length of target values.'
 
 	MBE = (t-y).sum()/(N_test-1)/t.mean()
-	return MBE`
+	return MBE
 
 def calc_CV(y,t):
 
