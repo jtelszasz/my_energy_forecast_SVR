@@ -28,6 +28,7 @@ def weather():
 	weather = pd.read_csv('raw_data/weather_20140101to20140131_df.csv',skiprows=0)
 	weather = weather.append(pd.read_csv('raw_data/weather_20140201to20140228_df.csv',skiprows=0))
 	weather = weather.append(pd.read_csv('raw_data/weather_20140301to20140331_df.csv',skiprows=0))
+	weather = weather.append(pd.read_csv('raw_data/weather_20140401to20140430_df.csv',skiprows=0))
 
 	weather['timestamp'] = weather.iloc[:,0]
 	weather.index = pd.to_datetime(weather['timestamp'])
@@ -51,6 +52,7 @@ def BGEdata():
 	elec = pd.read_csv('raw_data/DailyElectricUsage_201401.csv',skiprows=4,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp')
 	elec = elec.append(pd.read_csv('raw_data/DailyElectricUsage_201402.csv',skiprows=4,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 	elec = elec.append(pd.read_csv('raw_data/DailyElectricUsage_201403.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+	elec = elec.append(pd.read_csv('raw_data/DailyElectricUsage_201404.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 
 	return elec
 
