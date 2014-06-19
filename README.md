@@ -4,28 +4,34 @@ This Github directory contains analysis and predicitive modeling of hourly elect
 
 ## iPython Notebooks
 
-  My_Energy.ipynb --
+  My_Energy.ipynb -- Exploratory data analysis for hourly electricity usage at an apartment in Baltimore, Maryland.
 
-  My_Energy_and_Weather.ipynb --
+  My_Energy_and_Weather.ipynb -- Exploring the correlation between outdoor weather and electricity consumption.
 
-  Usage_Autocorrelation.ipynb -- 
+  Usage_Autocorrelation.ipynb -- Checking for autocorrelation in electricity consumption.
 
-  Elec_SVM.ipynb --
+  forecasts/Elec_SVM.ipynb -- Training a support vector machine to predict next-hour electricity consumption.
 
-  Elec_SVM_crossval.ipynb -- 
+  forecasts/Elec_SVM_crossval.ipynb -- Cross-validation for support vector model for prediction of next-hour electricity consumption.
 
-## Python codes
+## Python Codes and Scripts
 
-  time_parser.py --
+  time_parser.py -- Needed to interpret the timestamps from NOAA's weather files.
   
-  import_funcs.py --
+  import_funcs.py -- A couple of functions to smash a bunch of csv files into Pandas dataframes.  Currently includes functions for the BGE electricity data and for the NOAA weather data.
   
-  history.py --
+  history.py -- Creates additional fields that are equal to another field's values at specified lag times.  For instance, the electricity consumption at t-2 hours.
   
-  errors.py --
+  errors.py -- Functions that calculate various error measures for a model when given two Pandas dataframes, one containing the predicted values and the other containing the actual values.
   
-  weather_download_observations.py --
+  weather_download_observations.py --  Downloads weather data for a specified timeframe from wunderground.com.  Originally written by Melinda Han at Columbia University.
 
 ## Plots
 
-  /output_plots/
+  plots/
+
+## Datasets
+
+  BGE
+
+  NOAA weather
