@@ -4,22 +4,6 @@
 		"selected_items":
 		[
 			[
-				"n_tim",
-				"n_timesteps_advance"
-			],
-			[
-				"n_time",
-				"n_timesteps_window"
-			],
-			[
-				"app",
-				"append_history_diff"
-			],
-			[
-				"n_hour",
-				"n_hours_window"
-			],
-			[
 				"time",
 				"time_parser"
 			],
@@ -75,6 +59,17 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "'''\nerrors.py\n\nerrors.calc_RMSE(y,t)\nerrors.calc_MAPE(y,t)\nerrors.calc_CV(y,t)\nerrors.calc_MBE(y,t)\n\nCalculates error measures for predictive models\n\ny: Pandas dataframe of predicted values (one column)\nt: Pandas dataframe of target values (one column)\n\n'''\n\nimport pandas as pd\nimport numpy as np\n\ndef calc_RMSE(y,t):\n\n	N_test = len(y)\n	if N_test != len(t):\n		raise Exception, 'Length of predicted values does not equal length of target values.'\n	\n	RMSE = pow(pow(t-y,2).sum()/N_test,.5)\n	return RMSE\n\ndef calc_MAPE(y,t):\n\n	N_test = len(y)\n	if N_test != len(t):\n		raise Exception, 'Length of predicted values does not equal length of target values.'\n\n	MAPE = ((t-y).abs()/y).sum()/N_test\n	return MAPE\n\ndef calc_MBE(y,t):\n	\n	N_test = len(y)\n	if N_test != len(t):\n		raise Exception, 'Length of predicted values does not equal length of target values.'\n\n	MBE = (t-y).sum()/(N_test-1)/t.mean()\n	return MBE`\n\ndef calc_CV(y,t):\n\n	N_test = len(y)\n	if N_test != len(t):\n		raise Exception, 'Length of predicted values does not equal length of target values.'\n\n	CV = pow(pow(t-y,2).sum()/(N_test-1),.5)/t.mean()\n	return CV",
+			"file": "errors.py",
+			"file_size": 1112,
+			"file_write_time": 1400107757000000,
+			"settings":
+			{
+				"buffer_size": 1113,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -120,9 +115,6 @@
 	},
 	"file_history":
 	[
-		"/Users/Justin/Dropbox/Analysis_and_Blog/my_energy/errors.py",
-		"/Users/Justin/Dropbox/Analysis_and_Blog/my_energy/README.md",
-		"/Users/Justin/Dropbox/Analysis_and_Blog/my_energy/history.py",
 		"/Users/Justin/Dropbox/Analysis_and_Blog/my_energy/weather_download_observations.py",
 		"/Users/Justin/Dropbox/Analysis_and_Blog/my_energy/errors",
 		"/Users/Justin/Dropbox/Analysis_and_Blog/blog_project/_posts/2014-05-10-Closer-Look-At-SVM-Model.md",
@@ -206,11 +198,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"hours",
-			"'USAGE'",
-			"elec_and_weather",
-			"n_hours_advance",
-			"errors",
 			"predict_y",
 			"y_test_df",
 			"{{ site.url }}",
@@ -274,8 +261,36 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "errors.py",
+					"settings":
+					{
+						"buffer_size": 1113,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								903,
+								903
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 116.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
