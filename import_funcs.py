@@ -46,13 +46,17 @@ def weather():
 
 	return weather
 
-def BGEdata():
+def BGEdata(loc):
 
+	if loc == "south":
 	# Add additional electricity usage csv's downloaded using Green Button protocol on BGE.com
-	elec = pd.read_csv('raw_data/DailyElectricUsage_201401.csv',skiprows=4,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp')
-	elec = elec.append(pd.read_csv('raw_data/DailyElectricUsage_201402.csv',skiprows=4,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
-	elec = elec.append(pd.read_csv('raw_data/DailyElectricUsage_201403.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
-	elec = elec.append(pd.read_csv('raw_data/DailyElectricUsage_201404.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = pd.read_csv('raw_data/St_Paul_South/BGE_elec_hourly_201401.csv',skiprows=4,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp')
+		elec = elec.append(pd.read_csv('raw_data/St_Paul_South/BGE_elec_hourly_201402.csv',skiprows=4,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/St_Paul_South/BGE_elec_hourly_201403.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/St_Paul_South/BGE_elec_hourly_201404.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+
+	if loc == "north":
+		elec = pd.read_csv('raw_data/St_Paul_North/BGE_elec_hourly_20140524_20140617.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp')
 
 	return elec
 
