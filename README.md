@@ -32,6 +32,6 @@ This Github directory contains analysis and predicitive modeling of hourly elect
 
 ## Datasets
 
-  BGE
+  BGE 
 
   NOAA weather
