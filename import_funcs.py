@@ -25,10 +25,12 @@ import time_parser
 def weather():
 
 	# Add additional weather csv's downloaded using 'weather_download_obeservations.py' here
-	weather = pd.read_csv('raw_data/weather_20140101to20140131_df.csv',skiprows=0)
-	weather = weather.append(pd.read_csv('raw_data/weather_20140201to20140228_df.csv',skiprows=0))
-	weather = weather.append(pd.read_csv('raw_data/weather_20140301to20140331_df.csv',skiprows=0))
-	weather = weather.append(pd.read_csv('raw_data/weather_20140401to20140430_df.csv',skiprows=0))
+	weather = pd.read_csv('raw_data/Weather/weather_2014-01.csv',skiprows=0)
+	weather = weather.append(pd.read_csv('raw_data/Weather/weather_2014-02.csv',skiprows=0))
+	weather = weather.append(pd.read_csv('raw_data/Weather/weather_2014-03.csv',skiprows=0))
+	weather = weather.append(pd.read_csv('raw_data/Weather/weather_2014-04.csv',skiprows=0))
+	weather = weather.append(pd.read_csv('raw_data/Weather/weather_2014-05.csv',skiprows=0))
+	weather = weather.append(pd.read_csv('raw_data/Weather/weather_2014-06.csv',skiprows=0))
 
 	weather['timestamp'] = weather.iloc[:,0]
 	weather.index = pd.to_datetime(weather['timestamp'])
@@ -50,13 +52,14 @@ def BGEdata(loc):
 
 	if loc == "south":
 	# Add additional electricity usage csv's downloaded using Green Button protocol on BGE.com
-		elec = pd.read_csv('raw_data/St_Paul_South/BGE_elec_hourly_201401.csv',skiprows=4,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp')
-		elec = elec.append(pd.read_csv('raw_data/St_Paul_South/BGE_elec_hourly_201402.csv',skiprows=4,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
-		elec = elec.append(pd.read_csv('raw_data/St_Paul_South/BGE_elec_hourly_201403.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
-		elec = elec.append(pd.read_csv('raw_data/St_Paul_South/BGE_elec_hourly_201404.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = pd.read_csv('raw_data/St_Paul_South/elec_hourly_2014-01.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp')
+		elec = elec.append(pd.read_csv('raw_data/St_Paul_South/elec_hourly_2014-02.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/St_Paul_South/elec_hourly_2014-03.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/St_Paul_South/elec_hourly_2014-04.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 
 	if loc == "north":
-		elec = pd.read_csv('raw_data/St_Paul_North/BGE_elec_hourly_20140524_20140617.csv',skiprows=5,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp')
+		elec = pd.read_csv('raw_data/St_Paul_North/elec_hourly_2014-05-24_2014-05-31.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp')
+		elec = elec.append(pd.read_csv('raw_data/St_Paul_North/elec_hourly_2014-06.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 
 	return elec
 
