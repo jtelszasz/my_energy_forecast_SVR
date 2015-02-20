@@ -35,6 +35,9 @@ def weather():
 	weather = weather.append(pd.read_csv('raw_data/weather/weather_2014-08.csv',skiprows=0))
 	weather = weather.append(pd.read_csv('raw_data/weather/weather_2014-09.csv',skiprows=0))
 	weather = weather.append(pd.read_csv('raw_data/weather/weather_2014-10.csv',skiprows=0))
+	weather = weather.append(pd.read_csv('raw_data/weather/weather_2014-11.csv',skiprows=0))
+	weather = weather.append(pd.read_csv('raw_data/weather/weather_2014-12.csv',skiprows=0))
+	weather = weather.append(pd.read_csv('raw_data/weather/weather_2015-01.csv',skiprows=0))
 
 	weather['timestamp'] = weather.iloc[:,0]
 	weather.index = pd.to_datetime(weather['timestamp'])
@@ -68,6 +71,10 @@ def BGEdata(loc):
 		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2014-08.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2014-09.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2014-10.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2014-11.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2014-12.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2015-01.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2015-02-15.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 
 	return elec
 
