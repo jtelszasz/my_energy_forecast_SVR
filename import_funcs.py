@@ -74,7 +74,9 @@ def BGEdata(loc):
 		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2014-11.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2014-12.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2015-01.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
-		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2015-02-15.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2015-02.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2015-03.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
+		elec = elec.append(pd.read_csv('raw_data/new_apt/elec_hourly_2015-04_2015-10.csv',skiprows=0,parse_dates={'timestamp':['DATE','START TIME'],'timestamp_end':['DATE','END TIME']},index_col='timestamp'))
 
 	return elec
 
