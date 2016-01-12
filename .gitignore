@@ -1,0 +1,5 @@
+*.pyc
+*.zip
+*.sublime-workspace
+*.ipynb_checkpoints
+*.idea
