@@ -37,6 +37,7 @@ def append_history(df,var,n_timesteps_advance,n_timesteps_window):
 
 			df['%s_t-%i'%(var,j)][i] = df[var][i-j]
 
+		df['%s_t-%i'%(var,j)] = 
 
 	df = df.ix[n_timesteps_advance+n_timesteps_window:]
        
